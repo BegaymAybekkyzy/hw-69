@@ -1,0 +1,23 @@
+.autocomplete {
+  position: absolute;
+  border: 1px solid #000000;
+  width: 100%;
+  max-height: 200px;
+  overflow: auto;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  transition: height 1s;
+}
+
+
+.link-tv-show {
+  display: block;
+  padding: 10px 12px;
+}
+
+
+.link-tv-show:hover{
+  background-color: #b5b5b5
+}
