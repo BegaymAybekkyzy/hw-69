@@ -1,15 +1,13 @@
-import TVShowForm from '../../components/TVShowForm/TVShowForm.tsx';
-import { Outlet } from 'react-router-dom';
-
+import TVShowForm from "../../components/TVShowForm/TVShowForm.tsx";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
   return (
     <>
       <div className="w-50 mx-auto">
-        <TVShowForm/>
+        <TVShowForm />
       </div>
-
-      <Outlet/>
+      <Outlet />
     </>
   );
 };

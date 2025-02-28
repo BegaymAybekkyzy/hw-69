@@ -1,10 +1,12 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axiosApi from '../../axiosApi.ts';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axiosApi from "../../axiosApi.ts";
 
 export const nameRequest = createAsyncThunk<TVList[], string>(
-  'TVShows/ nameRequest',
+  "TVShows/ nameRequest",
   async (inputWord) => {
-    const response = await axiosApi.get<TV_API[]>(`search/shows?q=${inputWord}`);
+    const response = await axiosApi.get<TV_API[]>(
+      `search/shows?q=${inputWord}`,
+    );
     const list: TVList[] = response.data.map((show) => {
       return {
         id: show.show.id,
@@ -12,11 +14,11 @@ export const nameRequest = createAsyncThunk<TVList[], string>(
       };
     });
     return list;
-  }
+  },
 );
 
 export const idRequest = createAsyncThunk<TVShow, number>(
-  'TVShows/idRequest',
+  "TVShows/idRequest",
   async (id) => {
     const response = await axiosApi<TVShowAPI>(`shows/${id}`);
     const showApi = response.data;
@@ -26,6 +28,7 @@ export const idRequest = createAsyncThunk<TVShow, number>(
       type: showApi.type,
       language: showApi.language,
       genres: showApi.genres,
+      summary: showApi.summary,
       status: showApi.status,
       country: showApi.country,
       premiered: showApi.premiered,
@@ -34,7 +37,6 @@ export const idRequest = createAsyncThunk<TVShow, number>(
       rating: showApi.rating.average,
       image: showApi.image,
     };
-    console.log(show);
     return show;
-  }
+  },
 );

@@ -1,6 +1,5 @@
 .autocomplete {
   position: absolute;
-  border: 1px solid #000000;
   width: 100%;
   max-height: 200px;
   overflow: auto;
@@ -8,16 +7,35 @@
   top: 100%;
   left: 0;
   right: 0;
-  transition: height 1s;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
+.autocomplete.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
 
 .link-tv-show {
   display: block;
-  padding: 10px 12px;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
 }
 
-
-.link-tv-show:hover{
-  background-color: #b5b5b5
+.link-tv-show:hover {
+  background: #f0f0f0;
 }
